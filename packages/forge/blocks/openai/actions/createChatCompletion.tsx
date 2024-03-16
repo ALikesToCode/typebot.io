@@ -19,6 +19,27 @@ export const createChatCompletion = createAction({
     modelFetchId: 'fetchModels',
   }),
   getSetVariableIds: getChatCompletionSetVarIds,
+  turnableInto: [
+    {
+      blockType: 'open-router',
+    },
+    {
+      blockType: 'together-ai',
+    },
+    { blockType: 'mistral' },
+    {
+      blockType: 'anthropic',
+      transform: (options) => ({
+        ...options,
+        action: 'Create Chat Message',
+        responseMapping: options.responseMapping?.map((res: any) =>
+          res.item === 'Message content'
+            ? { ...res, item: 'Message Content' }
+            : res
+        ),
+      }),
+    },
+  ],
   fetchers: [
     {
       id: 'fetchModels',

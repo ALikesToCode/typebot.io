@@ -1,3 +1,6 @@
+This fork is intended for my personal project. Please use the original creator's version for other purposes.
+<hr>
+
 <br />
 <p align="center">
   <a href="https://typebot.io/#gh-light-mode-only" target="_blank">

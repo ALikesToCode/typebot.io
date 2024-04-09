@@ -7,7 +7,7 @@
     "build": "dotenv -e ./.env -e ../../.env -- next build",
     "start": "dotenv -e ./.env -e ../../.env -- next start",
     "lint": "dotenv -e ./.env -e ../../.env -- next lint",
-    "format:check": "prettier --check ./src",
+    "format:check": "prettier --check ./src --ignore-path ../../.prettierignore",
     "test": "dotenv -e ./.env -e ../../.env -- pnpm playwright test",
     "test:report": "pnpm playwright show-report",
     "test:ui": "dotenv -e ./.env -e ../../.env -- pnpm playwright test --ui"
@@ -26,6 +26,7 @@
     "cors": "2.8.5",
     "google-spreadsheet": "4.1.1",
     "got": "12.6.0",
+    "ky": "1.2.3",
     "next": "14.1.0",
     "nextjs-cors": "2.1.2",
     "nodemailer": "6.9.8",

@@ -118,7 +118,8 @@ export const executeForgedBlock = async (
     : undefined
 
   const parsedOptions = deepParseVariables(
-    state.typebotsQueue[0].typebot.variables
+    state.typebotsQueue[0].typebot.variables,
+    { removeEmptyStrings: true }
   )(block.options)
   await action?.run?.server?.({
     credentials: credentialsData ?? {},
@@ -147,6 +148,9 @@ export const executeForgedBlock = async (
       ? {
           type: 'custom-embed',
           content: {
+            url: action.run.web.displayEmbedBubble.parseUrl({
+              options: parsedOptions,
+            }),
             maxBubbleWidth: action.run.web.displayEmbedBubble.maxBubbleWidth,
             initFunction: action.run.web.displayEmbedBubble.parseInitFunction({
               options: parsedOptions,
